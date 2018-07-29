@@ -1,0 +1,12 @@
+@import "../../styles/variables";
+
+@prefixCls: app-container;
+.@{prefixCls}{
+  &-layout {
+    &-content {
+      padding: 24px 24px 0;
+      background-color: @colorme-second-color;
+      min-height: calc(100vh - @layout-header-height) !important;
+    }
+  }
+}

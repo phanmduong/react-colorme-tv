@@ -1,0 +1,53 @@
+@import "../../styles/variables";
+
+@ease-in-out-circ: cubic-bezier(0.78, 0.14, 0.15, 0.86);
+
+@prefixCls: sider-menu;
+.@{prefixCls} {
+  &-logo {
+    width: @menu-collapsed-width;
+    height: 64px;
+    position: relative;
+    line-height: 64px;
+    padding-left: (@menu-collapsed-width - 32px) / 2;
+    img {
+      display: inline-block;
+      vertical-align: middle;
+      height: 32px;
+    }
+  }
+  &-sider {
+    min-height: 100vh;
+    box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
+    position: relative;
+    z-index: 10;
+    background-color: @colorme-sider-menu-background-color !important;
+  }
+
+  &-menu {
+    height: calc(100vh - @layout-header-height) !important;
+    width: @menu-collapsed-width;
+    &-item {
+      height: @menu-item-height;
+      width: @menu-collapsed-width;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background-color .2s;
+      &-icon {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background-color: rgba(192, 192, 192, 0.34);
+        transition: background-color .2s;
+      }
+      &-active {
+        background-color: white;
+      }
+      &:hover {
+        background-color: @colorme-primary-color;
+      }
+    }
+  }
+}

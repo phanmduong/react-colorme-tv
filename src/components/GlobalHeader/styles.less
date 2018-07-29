@@ -1,0 +1,23 @@
+@import "../../styles/variables";
+
+@prefixCls: global-header;
+.@{prefixCls} {
+  &-layout {
+    height: @layout-header-height;
+    background-color: @colorme-primary-color;
+    padding: 0 24px;
+    &-header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      &-title {
+        color: white;
+        font-weight: 600;
+        font-size: 16px;
+      }
+      &-time {
+        color: white;
+      }
+    }
+  }
+}
