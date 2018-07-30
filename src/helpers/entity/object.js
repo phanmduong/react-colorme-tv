@@ -75,6 +75,7 @@ export function isEmptyWithKey(data, strKey) {
 }
 
 export function removePropertyObjectWithKey(data, strKey) {
+    data = {...data};
     if (isEmpty(data) || isEmpty(strKey)) return;
 
     const arrKey = strKey.split('.');

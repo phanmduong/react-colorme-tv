@@ -4,6 +4,7 @@ export default [
     {
         path: "/",
         exact: true,
-        component: asyncComponent(() => import("../containers/Dashboard"))
+        title: 'Chọn loại hiển thị',
+        component: asyncComponent(() => import("../containers/Home"))
     }
 ];

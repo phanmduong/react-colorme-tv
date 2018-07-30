@@ -1,11 +1,11 @@
 import React from "react";
 import {Card, Col, Row} from "antd";
+import {withHeader} from "../../../components/context/HeaderContext";
+import {withMenu} from "../../../components/context/MenuContext";
 
-class DashboardContainer extends React.Component {
-    constructor(props, context) {
-        super(props, context);
-    }
+//import PropTypes from 'prop-types';
 
+class Registers extends React.Component {
     componentDidMount() {
     }
 
@@ -16,14 +16,8 @@ class DashboardContainer extends React.Component {
                     <Col span={16}>
                         <div className={"full-height"}>
                             <div style={{height: '40%', paddingBottom: '24px'}}>
-                                <Card title="Card title" extra="dsadas" className="card-common" style={{height: '100%'}}>
-                                    <p>Card content</p>
-                                    <p>Card content</p>
-                                    <p>Card content</p>
-                                </Card>
-                            </div>
-                            <div style={{height: '60%'}}>
-                                <Card title="Card title" extra="dsadas" className="card-common" style={{height: '100%'}}>
+                                <Card title="Card title" extra="dsadas" className="card-common"
+                                      style={{height: '100%'}}>
                                     <p>Card content</p>
                                     <p>Card content</p>
                                     <p>Card content</p>
@@ -44,6 +38,6 @@ class DashboardContainer extends React.Component {
     }
 }
 
-DashboardContainer.propTypes = {};
+Registers.propTypes = {};
 
-export default DashboardContainer;
+export default withHeader()(withMenu()(Registers));

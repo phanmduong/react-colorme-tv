@@ -9,27 +9,91 @@ import classNames from "classnames";
 import styles from "./styles.less";
 import AppRoutes from "../../routes/AppRoutes";
 import {setHeaderToken} from "../../helpers/axios";
+import {HeaderProvider} from "../../components/context/HeaderContext";
+import {checkLink, isEmpty} from "../../helpers/utility";
+import _ from 'lodash';
+import {isEmptyArr} from "../../helpers/entity/array";
+import {MenuProvider} from "../../components/context/MenuContext";
+import history from "../../helpers/history";
 
 let cx = classNamesBind.bind(styles);
 
 
 class AppContainer extends React.Component {
-    constructor(props, context) {
-        super(props, context);
-    }
+    state = {
+        title: '',
+        menu: []
+    };
+    timeout = null;
 
     componentDidMount() {
         setHeaderToken();
     }
 
+    changeTitleHeader = (title) => {
+        title = isEmpty(title) ? '' : title;
+        if (title != this.state.title) {
+            this.setState({title});
+        }
+    };
+
+    nextMenu = (menu) => {
+        const {location} = history;
+        const {pathname} = location;
+
+        const index = _.findIndex(menu, (item) => {
+            return checkLink(item.path, pathname);
+        });
+
+        let nextIndex = 0;
+        if (0 <= index && index < menu.length - 1) {
+            nextIndex = index + 1;
+        }
+
+        if (index === -1) {
+            clearInterval(this.timeout);
+            return;
+        }
+
+        history.push(menu[nextIndex].path);
+    };
+
+    setTimeout = (menu) => {
+        this.timeout = setInterval(() => {
+            this.nextMenu(menu);
+        }, 2000);
+    };
+
+    clearTimeout = () => {
+        if (this.timeout != null) {
+            clearInterval(this.timeout);
+        }
+    };
+
+    updateMenu = (menu) => {
+
+        if (isEmptyArr(menu)) {
+            menu = [];
+            this.clearTimeout();
+        }
+
+        if (!_.isEqual(this.state.menu, menu)) {
+            this.setState({menu});
+            this.clearTimeout();
+            this.setTimeout(menu);
+        }
+
+    };
+
     render() {
         const {prefixCls} = this.props;
+        const {menu} = this.state;
         const layout = (
             <Layout hasSider>
-                <SiderMenu/>
+                <SiderMenu menu={menu}/>
                 <Layout>
                     <GlobalHeader
-                    title={"Content Ranking"}
+                        title={this.state.title}
                     />
                     <div className={cx(`${prefixCls}-layout`)}>
                         <Layout.Content>
@@ -41,10 +105,21 @@ class AppContainer extends React.Component {
                 </Layout>
             </Layout>
         );
+        const header = {
+            onChangeTitle: this.changeTitleHeader
+        };
+        const menuData = {
+            onUpdateMenu: this.updateMenu
+        };
         return (
-            <ContainerQuery query={QUERY_SCREEN}>
-                {params => <div className={classNames(params)}>{layout}</div>}
-            </ContainerQuery>
+            <HeaderProvider value={header}>
+                <MenuProvider value={menuData}>
+                    <ContainerQuery query={QUERY_SCREEN}>
+                        {params => <div className={classNames(params)}>{layout}</div>}
+                    </ContainerQuery>
+                </MenuProvider>
+            </HeaderProvider>
+
         );
     }
 }

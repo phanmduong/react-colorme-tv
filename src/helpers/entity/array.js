@@ -15,7 +15,7 @@ function isEmpty(data) {
 }
 
 export function isEmptyArr(arr) {
-    return arr && arr.length > 0;
+    return !(arr && arr.length > 0);
 }
 
 export function addFirstArray(array, data) {

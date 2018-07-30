@@ -1,0 +1,31 @@
+@import "./variables";
+
+.card-common {
+  background-color: @colorme-primary-color !important;
+  height: 100%;
+  border-radius: 2px;
+  * {
+    color: @colorme-text-primary-color !important;
+  }
+  border-color: transparent !important;
+  .ant-card-head {
+    border-bottom-color: @colorme-border-color;
+  }
+  .ant-card-body {
+    height: calc(100% - 57px) !important;
+  }
+}
+
+.full-height {
+  height: calc(100vh - @layout-header-height - 2 * @colorme-padding-content) !important;
+}
+
+.container-card {
+  margin-top: -12px;
+  margin-bottom: -12px;
+}
+
+.padding-vertical {
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
+}
