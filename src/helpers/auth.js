@@ -16,7 +16,7 @@ export function isLoggedIn() {
 
 export function saveToken(token, expires_in = TOKEN_EXPIRED_TIME) {
     if (IS_PRODUCTION) {
-        setCookie("colorme_token", token, expires_in, '.' + DOMAIN, true);
+        setCookie("colorme_token", token, expires_in, '.' + DOMAIN);
     } else {
         setCookie("colorme_token", token, expires_in);
     }
@@ -41,7 +41,7 @@ export function getRefreshToken() {
 
 export function saveRefreshToken(token, expires_in = TOKEN_EXPIRED_TIME) {
     if (IS_PRODUCTION) {
-        setCookie("colorme_refresh_token", token, expires_in, '.' + DOMAIN, true);
+        setCookie("colorme_refresh_token", token, expires_in, '.' + DOMAIN);
     } else {
         setCookie("colorme_refresh_token", token, expires_in);
     }

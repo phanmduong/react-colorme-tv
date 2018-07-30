@@ -3,6 +3,6 @@ const common = require("./webpack.common.js");
 
 module.exports = merge(common, {
   output: {
-    publicPath: "/build/"
+    publicPath: "/tv-dashboard/"
   }
 });
