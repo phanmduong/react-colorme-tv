@@ -43,4 +43,5 @@ module.exports = merge(common, {
             },
         ]
     },
+    devtool: 'source-map'
 });

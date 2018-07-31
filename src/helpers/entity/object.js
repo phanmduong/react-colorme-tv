@@ -107,3 +107,15 @@ export function removePropertyObjectWithKeys(data, arrayKey) {
 
     return result;
 }
+
+export function equals(obj1, obj2) {
+    function deepEqual(x, y) {
+        const ok = Object.keys, tx = typeof x, ty = typeof y;
+        return x && y && tx === 'object' && tx === ty ? (
+            ok(x).length === ok(y).length &&
+            ok(x).every(key => deepEqual(x[key], y[key]))
+        ) : (x === y);
+    }
+
+    return deepEqual(obj1, obj2) && deepEqual(obj2, obj1);
+}

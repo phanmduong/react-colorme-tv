@@ -11,10 +11,10 @@ import AppRoutes from "../../routes/AppRoutes";
 import {setHeaderToken} from "../../helpers/axios";
 import {HeaderProvider} from "../../components/context/HeaderContext";
 import {checkLink, isEmpty} from "../../helpers/utility";
-import _ from 'lodash';
 import {isEmptyArr} from "../../helpers/entity/array";
 import {MenuProvider} from "../../components/context/MenuContext";
 import history from "../../helpers/history";
+import {equals} from "../../helpers/entity/object";
 
 let cx = classNamesBind.bind(styles);
 
@@ -42,13 +42,9 @@ class AppContainer extends React.Component {
         const {pathname} = location;
 
 
-
         const index = menu.findIndex((item) => {
-                return checkLink(item.path, pathname);
-            })
-        //     _.findIndex(menu, (item) => {
-        //     return checkLink(item.path, pathname);
-        // });
+            return checkLink(item.path, pathname);
+        });
 
         let nextIndex = 0;
         if (0 <= index && index < menu.length - 1) {
@@ -82,7 +78,8 @@ class AppContainer extends React.Component {
             this.clearTimeout();
         }
 
-        if (!_.isEqual(this.state.menu, menu)) {
+        if (!equals(this.state.menu, menu)) {
+            console.log("set state");
             this.setState({menu});
             this.clearTimeout();
             this.setTimeout(menu);
