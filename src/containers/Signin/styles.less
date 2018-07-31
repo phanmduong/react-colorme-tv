@@ -1,6 +1,8 @@
 @import "../../styles/variables";
 
-.container {
+@prefixCls: sign-in;
+
+.@{prefixCls}-container {
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -8,29 +10,29 @@
   background: #f0f2f5;
 }
 
-.content {
+.@{prefixCls}-content {
   padding: 32px 0;
   flex: 1;
 }
 
 @media (min-width: @screen-md-min) {
-  .container {
+  .@{prefixCls}-container {
     background-image: url("https://gw.alipayobjects.com/zos/rmsportal/TVYTbAXWheQpRcWDaDMu.svg");
     background-repeat: no-repeat;
     background-position: center 110px;
     background-size: 100%;
   }
 
-  .content {
+  .@{prefixCls}-content {
     padding: 112px 0 24px 0;
   }
 }
 
-.top {
+.@{prefixCls}-top {
   text-align: center;
 }
 
-.header {
+.@{prefixCls}-header {
   height: 100px;
   line-height: 100px;
   a {
@@ -38,12 +40,12 @@
   }
 }
 
-.logo {
+.@{prefixCls}-logo {
   height: 80px;
   vertical-align: top;
 }
 
-.title {
+.@{prefixCls}-title {
   font-size: 33px;
   color: @heading-color;
   font-family: "Myriad Pro", "Helvetica Neue", Arial, Helvetica, sans-serif;
@@ -52,20 +54,20 @@
   top: 2px;
 }
 
-.desc {
+.@{prefixCls}-desc {
   font-size: @font-size-base;
   color: @text-color-secondary;
   margin-bottom: 40px;
 }
 
-.main {
+.@{prefixCls}-main {
   width: 368px;
   margin: 0 auto;
   @media screen and (max-width: @screen-sm) {
     width: 95%;
   }
 
-  .icon {
+  .@{prefixCls}-icon {
     font-size: 24px;
     color: rgba(0, 0, 0, 0.2);
     margin-left: 16px;
@@ -78,19 +80,19 @@
     }
   }
 
-  .other {
+  .@{prefixCls}-other {
     text-align: left;
     margin-top: 24px;
     line-height: 22px;
 
-    .register {
+    .@{prefixCls}-register {
       float: right;
     }
   }
 }
 
-.login {
-  .submit {
+.@{prefixCls}-login {
+  .@{prefixCls}-submit {
     width: 100%;
   }
 }

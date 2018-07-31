@@ -2,7 +2,7 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const WebpackMd5Hash = require("webpack-md5-hash");
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
     entry: [
@@ -96,64 +96,32 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                oneOf: [
-                    {
-                        exclude: /node_modules/,
-                        use: [MiniCssExtractPlugin.loader, {
-                            loader: "css-loader",
-                            options: {
-                                sourceMap: true,
-                                modules: true,
-                                localIdentName: '[local]__[hash:base64:5]',
-                            },
-
-                        }]
-                    },
-                    {
-                        include: /node_modules/,
-                        use: [
-                            MiniCssExtractPlugin.loader,
-                            'css-loader',
-                        ]
-                    },
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
                 ],
-            },
-            {
-                test: /\.less$/,
-                oneOf: [
-                    {
-                        exclude: /node_modules|globalStyles\.less/,
-                        use: [MiniCssExtractPlugin.loader, {
-                            loader: "css-loader",
-                            options: {
-                                sourceMap: true,
-                                modules: true,
-                                localIdentName: '[local]__[hash:base64:5]',
-                            },
-
-                        }, {
-                            loader: "less-loader", options: {
-                                javascriptEnabled: true,
-                            }
-                        }]
-                    },
-                    {
-                        include: /node_modules|globalStyles\.less/,
-                        use: [
-                            MiniCssExtractPlugin.loader,
-                            'css-loader',
-                            {
-                                loader: "less-loader", options: {
-                                    javascriptEnabled: true,
-                                }
-                            }
-                        ]
-                    },
-                ],
-            },
-
-
-
+                // oneOf: [
+                //     {
+                //         exclude: /node_modules/,
+                //         use: [MiniCssExtractPlugin.loader, {
+                //             loader: "css-loader",
+                //             options: {
+                //                 sourceMap: true,
+                //                 modules: true,
+                //                 localIdentName: '[local]__[hash:base64:5]',
+                //             },
+                //
+                //         }]
+                //     },
+                //     {
+                //         include: /node_modules/,
+                //         use: [
+                //             MiniCssExtractPlugin.loader,
+                //             'css-loader',
+                //         ]
+                //     },
+                // ],
+            }
         ],
 
     },
@@ -179,6 +147,7 @@ module.exports = {
             filename: "[name].[contenthash].css",
             chunkFilename: "[name].[contenthash].chunk.css",
         }),
+        new BundleAnalyzerPlugin()
     ],
     optimization: {
         minimizer: [

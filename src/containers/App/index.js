@@ -41,9 +41,14 @@ class AppContainer extends React.Component {
         const {location} = history;
         const {pathname} = location;
 
-        const index = _.findIndex(menu, (item) => {
-            return checkLink(item.path, pathname);
-        });
+
+
+        const index = menu.findIndex((item) => {
+                return checkLink(item.path, pathname);
+            })
+        //     _.findIndex(menu, (item) => {
+        //     return checkLink(item.path, pathname);
+        // });
 
         let nextIndex = 0;
         if (0 <= index && index < menu.length - 1) {

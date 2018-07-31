@@ -1,11 +1,14 @@
 import React from "react";
 import {Alert} from "antd";
 import styles from "./styles.less";
+import classNamesBind from "classnames/bind";
 import CustomForm from "../../components/common/Form";
 import FormInput from "../../components/common/FormInput";
 import FormButton from "../../components/common/FormButton";
 import Icon from "../../components/common/Icon";
 import {signin} from "../../actions/signinActions";
+
+let cx = classNamesBind.bind(styles);
 
 class SignInForm extends React.Component {
     constructor(props) {
@@ -34,8 +37,9 @@ class SignInForm extends React.Component {
     };
 
     render() {
+        const {prefixCls} = this.props;
         return (
-            <div className={styles.login}>
+            <div className={cx(`${prefixCls}-login`)}>
                 {!this.state.isLoading &&
                 this.state.messageError &&
                 this.renderMessageError(this.state.messageError)}
@@ -72,7 +76,7 @@ class SignInForm extends React.Component {
                         type="primary"
                         htmlType="submit"
                         size="large"
-                        className={styles.submit}
+                        className={cx(`${prefixCls}-submit`)}
                         loading={this.state.isLoading}
                     >
                         Đăng nhập
@@ -82,5 +86,9 @@ class SignInForm extends React.Component {
         );
     }
 }
+
+SignInForm.defaultProps = {
+    prefixCls: 'sign-in'
+};
 
 export default SignInForm;
