@@ -1,0 +1,35 @@
+@import "../../styles/variables";
+
+@prefixCls: home;
+
+.@{prefixCls} {
+  &-card {
+    height: calc((100vh - @layout-header-height - @colorme-padding-content) / 3);
+    transition: all .3s;
+    &-content {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      border: 2px solid transparent;
+
+      &:hover{
+        border-color: @colorme-border-color;
+      }
+
+      > * {
+        margin-top: 20px;
+      }
+
+      &-icon{
+        width: 100px;
+        height: auto;
+      }
+      &-text{
+        font-size: 20px;
+        font-weight: 300;
+      }
+    }
+  }
+}

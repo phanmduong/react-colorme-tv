@@ -13,18 +13,22 @@
   "license": "ISC",
   "dependencies": {
     "antd": "^3.5.4",
+    "apollo-boost": "^0.1.12",
     "axios": "^0.18.0",
+    "babel-polyfill": "^6.26.0",
     "classnames": "^2.2.5",
+    "graphql": "^0.13.2",
+    "graphql-tag": "^2.9.2",
     "history": "^4.7.2",
     "moment": "^2.22.2",
     "nprogress": "^0.2.0",
     "path": "^0.12.7",
     "prop-types": "^15.6.1",
     "react": "^16.4.0",
+    "react-apollo": "^2.1.9",
     "react-dom": "^16.4.0",
     "react-router": "^4.2.0",
-    "react-router-dom": "^4.2.2",
-    "babel-polyfill": "^6.26.0"
+    "react-router-dom": "^4.2.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

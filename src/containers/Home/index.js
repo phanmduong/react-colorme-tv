@@ -7,6 +7,7 @@ import icons from "../../constants/icons";
 import {withHeader} from "../../components/context/HeaderContext";
 import salesRoutes from "../../routes/salesRoutes";
 import {withMenu} from "../../components/context/MenuContext";
+import classRoutes from "../../routes/classRoutes";
 
 let cx = classNamesBind.bind(styles);
 
@@ -19,7 +20,7 @@ const screens = [
     {
         text: 'Class TV',
         icon: icons.classes,
-        path: ''
+        path: classRoutes[0].path
     },
     {
         text: 'Marketing TV',
