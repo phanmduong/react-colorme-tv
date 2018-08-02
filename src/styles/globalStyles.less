@@ -4,6 +4,7 @@
   background-color: @colorme-primary-color !important;
   height: 100%;
   border-radius: 2px;
+  transition: all .2s;
   * {
     color: @colorme-text-primary-color !important;
   }
@@ -13,6 +14,19 @@
   }
   .ant-card-body {
     height: calc(100% - 57px) !important;
+  }
+}
+
+.card-no-padding {
+  .ant-card-body {
+    padding: 0 !important;
+  }
+}
+
+.card-no-padding-vertical {
+  .ant-card-body {
+    padding-top: 0!important;
+    padding-bottom: 0!important;
   }
 }
 

@@ -1,7 +1,7 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const WebpackMd5Hash = require("webpack-md5-hash");
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+// const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
@@ -150,19 +150,19 @@ module.exports = {
         new BundleAnalyzerPlugin()
     ],
     optimization: {
-        minimizer: [
-            // we specify a custom UglifyJsPlugin here to get source maps in production
-            // new UglifyJsPlugin({
-            //     cache: true,
-            //     parallel: true,
-            //     uglifyOptions: {
-            //         compress: false,
-            //         ecma: 6,
-            //         mangle: true
-            //     },
-            //     sourceMap: true
-            // })
-        ],
+        // minimizer: [
+        //     // we specify a custom UglifyJsPlugin here to get source maps in production
+        //     new UglifyJsPlugin({
+        //         cache: true,
+        //         parallel: true,
+        //         uglifyOptions: {
+        //             compress: false,
+        //             ecma: 6,
+        //             mangle: true
+        //         },
+        //         sourceMap: true
+        //     })
+        // ],
         splitChunks: {
             chunks: 'all'
         }

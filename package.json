@@ -12,19 +12,20 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@antv/data-set": "^0.8.9",
     "antd": "^3.5.4",
     "axios": "^0.18.0",
+    "babel-polyfill": "^6.26.0",
+    "bizcharts": "^3.1.10",
     "classnames": "^2.2.5",
     "history": "^4.7.2",
     "moment": "^2.22.2",
-    "nprogress": "^0.2.0",
     "path": "^0.12.7",
     "prop-types": "^15.6.1",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-router": "^4.2.0",
-    "react-router-dom": "^4.2.2",
-    "babel-polyfill": "^6.26.0"
+    "react-router-dom": "^4.2.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

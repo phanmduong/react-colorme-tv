@@ -18,7 +18,8 @@ module.exports = merge(common, {
         },
         host: '0.0.0.0',
         public: 'localhost:3000',
-        disableHostCheck: true
+        disableHostCheck: true,
+        compress: true
     },
     module: {
         rules: [

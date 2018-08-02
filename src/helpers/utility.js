@@ -233,3 +233,21 @@ export function randomStr() {
     return text;
 
 }
+
+export function convertMoneyToK(input) {
+    let str = String(input);
+    if (str.length > 3) {
+        if (str[str.length - 4] == '.') {
+            return `${str.substr(0, str.length - 4)}K`;
+        }
+        return `${str.substr(0, str.length - 3)}K`;
+    }
+    return input;
+}
+
+export function dotNumber(number) {
+    if (!isFinite(number)) return '0';
+    if (number == 0) return '0';
+    if (number) return number.toString().replace(/\./g, '').replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    return number;
+}

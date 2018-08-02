@@ -62,7 +62,7 @@ class AppContainer extends React.Component {
     setTimeout = (menu) => {
         this.timeout = setInterval(() => {
             this.nextMenu(menu);
-        }, 2000);
+        }, 1000000);
     };
 
     clearTimeout = () => {
@@ -79,7 +79,6 @@ class AppContainer extends React.Component {
         }
 
         if (!equals(this.state.menu, menu)) {
-            console.log("set state");
             this.setState({menu});
             this.clearTimeout();
             this.setTimeout(menu);

@@ -1,6 +1,10 @@
 import React from "react";
 import { Spin } from "antd";
 import styles from "./styles.less";
+import classNamesBind from "classnames/bind";
+
+let cx = classNamesBind.bind(styles);
+
 
 class GlobalLoading extends React.Component {
   constructor(props, context) {
@@ -9,7 +13,7 @@ class GlobalLoading extends React.Component {
 
   render() {
     return (
-      <div className={styles["container-loading"]}>
+      <div className={cx("container-loading")}>
         <Spin  size="large"/>
       </div>
     );
