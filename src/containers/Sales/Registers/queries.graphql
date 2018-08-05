@@ -1,0 +1,27 @@
+query getAnalyticsSales($gen_id: Int) {
+  analytics_sales(gen_id: $gen_id) {
+    money
+    money_today
+    registers_today
+    paid_by_date{
+      date
+      total
+    }
+    registers_by_date {
+      date
+      total
+    }
+    total_paid_registers
+    target_revenue
+  }
+  bases(gen_id: $gen_id) {
+    money
+    name
+    id
+    target_revenue
+  }
+  gen(id: $gen_id) {
+    start_time
+    end_time
+  }
+}

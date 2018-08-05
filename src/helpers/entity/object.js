@@ -14,6 +14,10 @@ function isEmpty(data) {
     return isUndefined(data) || isNull(data) || isNotValue(data);
 }
 
+export function isEmptyObj(obj) {
+    return isUndefined(obj) || isNull(obj) || (Object.keys(obj).length === 0 && obj.constructor === Object);
+}
+
 /**
  * get value of object with string key
  * @param object example: {post: {creator: 'A'}}

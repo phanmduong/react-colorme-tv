@@ -6,13 +6,13 @@ function isNull(data) {
     return data == null;
 }
 
-function isNotValue(data) {
-    return data == "";
-}
-
-function isEmpty(data) {
-    return isUndefined(data) || isNull(data) || isNotValue(data);
-}
+// function isNotValue(data) {
+//     return data == "";
+// }
+//
+// function isEmpty(data) {
+//     return isUndefined(data) || isNull(data) || isNotValue(data);
+// }
 
 export function removeObservable(dataInput) {
 

@@ -18,7 +18,6 @@ class LineChart extends React.PureComponent {
             });
             return col;
         });
-        console.log(dataChart);
         const ds = new DataSet();
         const dv = ds.createView().source(dataChart);
         dv.transform({

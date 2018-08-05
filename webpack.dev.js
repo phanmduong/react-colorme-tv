@@ -5,8 +5,8 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = merge(common, {
     output: {
         publicPath: "/",
-        filename: '[name].js',
-        chunkFilename: '[name].chunk.js',
+        filename: '[name].[hash].js',
+        chunkFilename: '[name].[hash].chunk.js',
     },
     devServer: {
         contentBase: './dist',

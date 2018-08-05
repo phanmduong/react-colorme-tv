@@ -1,4 +1,4 @@
-import {client} from "./graphqlClient";
+import {client} from "../graphql/graphqlClient";
 import gql from 'graphql-tag';
 
 export function getBases() {

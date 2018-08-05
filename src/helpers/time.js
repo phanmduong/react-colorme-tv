@@ -23,3 +23,19 @@ export function relativeTime(time) {
 export function fullRelativeTime(time) {
     return capitalizeFirstLetter(convertTime(time).startOf('minute').fromNow());
 }
+
+/**
+ * generate Date With Unix
+ * @param startTime timestamp
+ * @param endTime timestamp
+ * @param format
+ * @returns {Array} date
+ */
+export function generateDateWithUnix(startTime, endTime, format = 'L') {
+    let arr = [];
+    while (startTime <= endTime) {
+        arr = [...arr, formatTime(startTime, format)];
+        startTime += 86400;
+    }
+    return arr;
+}

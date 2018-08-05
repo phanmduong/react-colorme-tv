@@ -39,11 +39,23 @@ const autoHeight = () => WrappedComponent => {
         componentDidMount() {
             const {height} = this.props;
             if (!height) {
-                const h = getAutoHeight(this.root);
-                // eslint-disable-next-line
-                this.setState({computedHeight: h});
+                this.resize();
+                window.addEventListener('resize', this.resize);
             }
         }
+
+        componentWillUnmount() {
+            const {height} = this.props;
+            if (!height) {
+                window.removeEventListener('resize', this.resize);
+            }
+        }
+
+        resize = () => {
+            const h = getAutoHeight(this.root);
+            // eslint-disable-next-line
+            this.setState({computedHeight: h});
+        };
 
         handleRoot = node => {
             this.root = node;
@@ -54,7 +66,7 @@ const autoHeight = () => WrappedComponent => {
             const {computedHeight} = this.state;
             const h = height || computedHeight;
             return (
-                <div ref={this.handleRoot}>{h > 0 &&
+                <div ref={this.handleRoot} style={{height: '100%'}}>{h > 0 &&
                 <WrappedComponent {...this.props} height={h} isAutoHeight={true}/>}</div>
             );
         }
