@@ -24,3 +24,5 @@ export const API_URL = PROTOCOL_DOMAIN + 'api/';                        // https
 export const BASE_API_URL = 'https://k.atomuser.com/client-api/';                        // https://atomuser.com/api/
 export const SOCKET_HOST = 'https://atomuser.com';                      // https://atomuser.com/
 export const SOCKET_PORT = '9000';                                      // 9000
+export const GRAPHQL_URL = IS_PRODUCTION ?
+    'http://colorme.vn:8080/graphql' : 'http://localhost:8000/graphql';                                      // 9000

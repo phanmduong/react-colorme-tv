@@ -1,0 +1,37 @@
+@import "../../../styles/variables";
+
+@prefixCls: sales-register-1;
+
+.@{prefixCls} {
+  &-card-revenue {
+    position: relative;
+    height: 100%;
+    &-progress {
+      position: absolute;
+      background-color: #038e00;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+    &-content {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      &-title {
+        font-size: 6vw;
+        text-align: center;
+        line-height: 1;
+        z-index: 1;
+      }
+      &-suffix {
+        margin-left: 20px;
+        font-size: 2vw;
+        text-align: center;
+        line-height: 1;
+        z-index: 1;
+      }
+    }
+  }
+}

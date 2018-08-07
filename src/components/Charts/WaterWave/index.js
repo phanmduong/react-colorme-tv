@@ -45,6 +45,9 @@ export default class WaterWave extends PureComponent {
     componentDidUpdate() {
         const {percent} = this.props;
         percentData = percent / 100;
+        if (percentData != percent / 100){
+            percentData = percent / 100;
+        }
     }
 
     renderChart() {

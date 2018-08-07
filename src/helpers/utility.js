@@ -251,3 +251,16 @@ export function dotNumber(number) {
     if (number) return number.toString().replace(/\./g, '').replace(/\B(?=(\d{3})+(?!\d))/g, '.');
     return number;
 }
+
+export function round2(first, second) {
+    return Math.round(first * 100 / second) / 100;
+}
+
+/**
+ *
+ * @param startTime unix time
+ * @param endTime unix time
+ */
+export function rangeDays(startTime, endTime) {
+    return round2(endTime - startTime, (60 * 60 * 24));
+}
